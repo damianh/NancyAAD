@@ -47,6 +47,7 @@
     {
         public ValuesModule() : base("api")
         {
+            this.RequiresOwinAuthentication();
             Get["/values"] = _ =>
             {
                 ClaimsPrincipal claimsPrincipal = Context.GetAuthenticationManager().User;
