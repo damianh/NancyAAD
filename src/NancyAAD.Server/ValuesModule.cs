@@ -12,7 +12,7 @@ namespace NancyAAD.Server
             this.RequiresMSOwinAuthentication();
             Get["/values"] = _ =>
             {
-                ClaimsPrincipal claimsPrincipal = Context.GetAuthenticationManager().User;
+                ClaimsPrincipal claimsPrincipal = Context.GetMSOwinUser();
                 Console.WriteLine("==>I have been called by {0}", claimsPrincipal.FindFirst(ClaimTypes.Upn));
                 return new[] {"value1", "value2"};
             };
